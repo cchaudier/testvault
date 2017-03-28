@@ -1,0 +1,13 @@
+#!/bin/sh
+
+if [ ! -r '.vault_pass' ]; then
+  exit 1
+fi
+export PAGER='cat'
+CONTENT=`ansible-vault view "$1" --vault-password-file=.vault_pass 2> /dev/null`
+
+if echo "$CONTENT" | grep -q 'ERROR! input is not encrypted'; then
+  cat "$1"
+else
+  echo "$CONTENT"
+fi
