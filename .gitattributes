@@ -1,1 +1,1 @@
-*vault* diff=ansible-vault merge=ansible-vault filter=ansible-vault
+*vault* diff=ansible-vault merge=binary filter=ansible-vault
